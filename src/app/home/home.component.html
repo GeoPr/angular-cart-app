@@ -1,0 +1,43 @@
+<section class="home">
+  <mat-form-field class="home__box">
+    <mat-label class="home__label">Search by title</mat-label>
+    <input
+      type="text"
+      matInput
+      placeholder="Title here"
+      class="home__input"
+      [(ngModel)]="search"
+    />
+  </mat-form-field>
+  <div
+    *ngIf="productsService.products.length; else loading"
+    class="home__products"
+  >
+    <div
+      *ngFor="let product of productsService.products | filter: search"
+      class="home__product product-home"
+    >
+      <div class="product-home__img">
+        <img [src]="product.img" alt="img" />
+      </div>
+      <div class="product-home__content">
+        <h4 class="product-home__title">{{ product.t }}</h4>
+        <p class="product-home__subtitle">{{ product.tt }}</p>
+        <div class="product-home__actions">
+          <div class="product-home__price">{{ product.price | currency }}</div>
+          <button
+            mat-raised-button
+            color="primary"
+            class="product-home__button"
+            (click)="productsCartService.add(product)"
+          >
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p>Loading...</p>
+  </ng-template>
+</section>

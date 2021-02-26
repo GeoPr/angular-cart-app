@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="header">
+  <ul class="header__list">
+    <li *ngFor="let link of links" class="header__item">
+      <a [routerLink]="link.routerLink">{{ link.title }}</a>
+    </li>
+  </ul>
+  <a routerLink="/cart" class="header__item-cart">
+    cart
+    <span class="header__item-cart-count">
+      {{ productsCartService.products.length }}
+    </span>
+  </a>
+</mat-toolbar>

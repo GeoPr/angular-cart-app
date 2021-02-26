@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 100px;
+  // .header__list
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+  // .header__item
+  &__item {
+    &:not(:last-child) {
+      margin: 0px 30px 0px 0px;
+    }
+  }
+  // .header__item-cart
+  &__item-cart {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    background: orange;
+    display: grid;
+    place-content: center;
+  }
+  // .header__item-cart-count
+  &__item-cart-count {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+  }
+}
